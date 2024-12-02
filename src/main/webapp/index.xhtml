@@ -1,29 +1,73 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>Cadastro de Aluno</title>
+	<title>Cadastro de Aluno</title>
 </h:head>
 <h:body>
-    <h:form id="form">
-        <p:panel header="Cadastro de Aluno">
-            <p:messages autoUpdate="true" />
-            <h:outputLabel for="nome" value="Nome:" />
-            <p:inputText id="nome" value="#{alunoBean.aluno.nome}" required="true" />
+	<h:form id="Formulario">
+		<p:panel header="Cadastro de Aluno" styleClass="panel-cadastro">
+			<p:messages autoUpdate="true" closable="true"/>
 
-            <h:outputLabel for="dataNascimento" value="Data de Nascimento:" />
-            <p:calendar id="dataNascimento" value="#{alunoBean.aluno.dataNascimento}" />
+			<!-- Usando p:panelGrid para alinhamento -->
+			<p:panelGrid columns="2" styleClass="grid-cadastro" cellpadding="10">
+				<h:outputLabel for="nome" value="Nome:" />
+				<p:inputText id="Nome" value="#{alunoBean.aluno.nome}" required="true" requiredMessage="O campo Nome é obrigatório." placeholder="Digite seu Nome"/>
 
-            <h:outputLabel for="matricula" value="Matrícula:" />
-            <p:inputText id="matricula" value="#{alunoBean.aluno.matricula}" required="true" />
+				<h:outputLabel for="dataNascimento" value="Data de Nascimento:" />
+				<p:calendar id="mask" value="#{alunoBean.aluno.dataNascimento}" 
+					placeholder="Data de Nascimento" pattern="dd/MM/yyyy" mask="true"
+					yearRange="c-100:c" showButtonPanel="true" navigator="true"
+					showIcon="true" showOn="button" required="true" requiredMessage="O campo Data de Nascimento é obrigatório."/>
 
-            <p:commandButton value="Salvar" action="#{alunoBean.salvar}" update=":form" />
-            <p:commandButton value="Listar" outcome="listagem.xhtml" />
-            <p:link value="Listar" outcome="listagem.xhtml" />
-            
-            
-        </p:panel>
-    </h:form>
+				<h:outputLabel for="matricula" value="Matrícula:" />
+				<p:inputText id="matricula" value="#{alunoBean.aluno.matricula}" required="true" requiredMessage="O campo Matricula é Obrigatorio." placeholder="Digite sua Matricula"/>
+			</p:panelGrid>
+			<br/>
+			<!-- Botão de Salvar -->
+			<p:commandButton value="Salvar" action="#{alunoBean.salvar}" update=":Formulario" styleClass="botao-salvar" />
+
+			<!-- Link para Listagem -->
+			<p:link value="Listar" outcome="listagem.xhtml" styleClass="link-listar" />
+		</p:panel>
+	</h:form>
+
+	<!-- Estilos CSS personalizados -->
+	<style>
+		/* Centralizando o painel de cadastro */
+		.panel-cadastro {
+			width: 30%; /* Ajusta a largura do painel */
+			margin: 20px auto; /* Centraliza o painel na página */
+			padding: 20px;
+			margin-top: 200px;
+		}
+
+		/* Ajustando o layout da grid */
+		.grid-cadastro {
+			width: 100%;
+			margin: 0 auto;
+		}
+
+		/* Estilo dos campos de entrada e labels */
+		.p-inputtext, .p-calendar {
+			width: 100%; /* Campos de entrada ocupam toda a largura disponível */
+		}
+
+		/* Botão de salvar ocupa toda a largura */
+		.botao-salvar {
+			margin-top: 20px;
+			width: 100%;
+		}
+
+		/* Estilo para o link "Listar" */
+		.link-listar {
+			display: block;
+			margin-top: 20px;
+			text-align: center;
+			font-weight: bold;
+			color: #0078D4; /* Cor para o link */
+		}
+	</style>
 </h:body>
 </html>
