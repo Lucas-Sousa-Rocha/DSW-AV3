@@ -81,7 +81,7 @@ Este projeto foi desenvolvido como parte da **AP3** da disciplina **Desenvolvime
 
 1. **Clone o Repositório**  
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/Lucas-Sousa-Rocha/DSW-AV3.git
    cd nome-do-repositorio
    ```
 
@@ -115,5 +115,6 @@ Este projeto foi desenvolvido como parte da **AP3** da disciplina **Desenvolvime
 
 - Mensagem de Exclusão de Usuario
 ![alt text](image-3.png)
+
 ### 👤 Autor
 Desenvolvido por [Lucas Sousa Da Rocha] como parte da disciplina Desenvolvimento de Sistemas para Web 2024.2.
