@@ -77,7 +77,7 @@ public class AlunoBean {
 		try {
 			AlunoDAO.excluir(aluno);
 			alunos.remove(aluno);
-			MessageUtil.addInfoMsg("Sucesso", "Usuário excluido com sucesso");
+			MessageUtil.addInfoMsg("", "Aluno excluido com sucesso");
 			alunos = AlunoDAO.listar();
 		} catch (Exception e) {
 			MessageUtil.addErrorMsg("Erro", "Erro ao excluir o Usuário");
